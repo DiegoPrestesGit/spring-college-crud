@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
 
 @Entity
 @Table(name = "users")
@@ -25,16 +28,18 @@ public class User {
 	private String password;
 
 	@Column(name = "created_at")
-	private String created_at;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created_at;
 
 	@Column(name = "updated_at")
-	private String updated_at;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updated_at;
 
 	public User() {
 		super();
 	}
 
-	public User(String name, String email, String password, String created_at, String updated_at) {
+	public User(String name, String email, String password, Date created_at, Date updated_at) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -75,19 +80,19 @@ public class User {
 		this.password = password;
 	}
 
-	public String getCreated_at() {
+	public Date getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(String created_at) {
+	public void setCreated_at(Date created_at) {
 		this.created_at = created_at;
 	}
 
-	public String getUpdated_at() {
+	public Date getUpdated_at() {
 		return updated_at;
 	}
 
-	public void setUpdated_at(String updated_at) {
+	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
 }
