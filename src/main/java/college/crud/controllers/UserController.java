@@ -27,7 +27,7 @@ public class UserController {
 		return this.usersRepository.findAll();
 	}
 
-	@GetMapping("/users/{id}")
+	@GetMapping("users/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable(value = "id") String userId)
 			throws ResourceNotFoundException {
 		User user = usersRepository.findById(userId)
@@ -35,7 +35,7 @@ public class UserController {
 		return ResponseEntity.ok().body(user);
 	}
 
-	@PostMapping("/users")
+	@PostMapping("users")
 	public User createUser(@Validated @RequestBody User user) {
 		return this.usersRepository.save(user);
 	}
